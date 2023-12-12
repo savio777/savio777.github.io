@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const AboutMe: React.FC = () => {
@@ -24,7 +25,13 @@ const AboutMe: React.FC = () => {
       </div>
 
       <div>
-        <img src="https://avatars.githubusercontent.com/u/35678887?v=4" alt="avatar github" />
+        <Image
+          src="https://avatars.githubusercontent.com/u/35678887?v=4"
+          alt="avatar github"
+          width={500}
+          height={500}
+          unoptimized
+        />
 
         <p>
           <span>3+</span>

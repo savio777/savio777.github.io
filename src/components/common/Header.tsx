@@ -1,11 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import { Poppins } from 'next/font/google'
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: '500'
+})
 
 const Header: React.FC = () => (
-  <header>
+  <header className={poppins.className}>
     <Link href='/'>
-      <Image src="/favicon.svg" alt="Ícone da letra S, Logo de Sávio" width={500} height={500} />
+      <Image
+        src="/favicon.svg"
+        alt="Ícone da letra S, Logo de Sávio"
+        width={55}
+        height={55}
+      />
     </Link>
 
     <nav>
