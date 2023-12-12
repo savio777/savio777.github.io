@@ -13,6 +13,13 @@ const config: Config = {
         "h-blue-500": "#8caaee",
         "h-blue-900": "#303446",
       },
+      width: {
+        120: "30rem",
+        125: "31.25rem",
+      },
+      height: {
+        125: "31.25rem",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

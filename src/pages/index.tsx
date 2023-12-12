@@ -9,7 +9,7 @@ export default function Home() {
         <meta name="description" content="Graduate in analysis and development of systems. Currently i'm working as Full Stack developer using React, React-native, Typescript and NodeJs" />
       </Head>
 
-      <div>
+      <div className="py-12 px-6 md:px-32 md:space-y-28">
         <AboutMe />
       </div>
     </>
