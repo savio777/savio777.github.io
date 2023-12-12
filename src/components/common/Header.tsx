@@ -8,7 +8,7 @@ const poppins = Poppins({
 })
 
 const Header: React.FC = () => (
-  <header className={poppins.className}>
+  <header className={`${poppins.className} bg-h-blue-900 text-sm flex py-3 px-5 justify-between items-center sticky top-0 z-30`}>
     <Link href='/'>
       <Image
         src="/favicon.svg"
@@ -18,7 +18,7 @@ const Header: React.FC = () => (
       />
     </Link>
 
-    <nav>
+    <nav className='hidden md:flex items-center gap-10 text-md'>
       <Link href='/'>Sobre mim</Link>
       <Link href='/'>Portfolio</Link>
       <Link href='/contatos'>Entre em contato</Link>
