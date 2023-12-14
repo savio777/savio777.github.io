@@ -1,27 +1,10 @@
 import Head from "next/head";
 import AboutMe from "@/components/Home/AboutMe";
 import Projects from "@/components/Home/Projects";
+import { IHomeData } from "@/types/Home";
+import { GetStaticProps } from "next";
 
-const projects = [
-  {
-    slug: 'taxi2go',
-    name: 'Taxi2Go',
-    image: {
-      url: 'https://play-lh.googleusercontent.com/Po6ZAmmuONIyohOafSjGvbXq7QFpP4dduKhTjfz8hnAAJOH2cjHgtW1s5IbXC-J_NG4=w240-h480-rw',
-      alt: 'Ícone do app Taxi2Go'
-    }
-  },
-  {
-    slug: 'riviera.consumidor',
-    name: 'MyRiviera',
-    image: {
-      url: 'https://play-lh.googleusercontent.com/Ja8uKjlPjKeu1ou_WL3L6Lw9MuUkQD0scAn37V6fCmWlvHN03sruLXmlySuQnJqOcNQ=w240-h480-rw',
-      alt: 'Ícone do app MyRiviera'
-    }
-  },
-]
-
-export default function Home() {
+export default function Home({ data }: { data: IHomeData }) {
   return (
     <>
       <Head>
@@ -30,9 +13,27 @@ export default function Home() {
       </Head>
 
       <div className="py-12 px-6 md:px-32 md:space-y-28">
-        <AboutMe />
-        <Projects projects={projects} />
+        <AboutMe aboutMe={data.aboutMe} />
+        <Projects projects={data.projects} />
       </div>
     </>
   )
+}
+
+const loadHome = async () => {
+  const res = await fetch('https://gist.githubusercontent.com/savio777/84e05621c6e592d76845dfd57cbe1327/raw/5c79dc634b92a183c7f20b8e19e2fa4908f3c26f/portfolio-contact-data.json')
+
+  const resJson = await res.json()
+
+  return resJson
+}
+
+export const getServerSideProps: GetStaticProps<{ data: IHomeData }> = async () => {
+  const data = await loadHome()
+
+  return {
+    props: {
+      data
+    }
+  }
 }
