@@ -29,7 +29,7 @@ const CopyButton: React.FC<ICopyButtonProps> = ({ textToCopy }) => {
       </button>
 
       {isShowToolTip && (
-        <div className="inset -ml-10 -mb-20 p-2 rounded-xl bg-h-blue-500">
+        <div className="inset -ml-14 -mb-20 p-2 rounded-xl bg-h-blue-500">
           <span className="text-sm">Copiado!</span>
         </div>
       )}

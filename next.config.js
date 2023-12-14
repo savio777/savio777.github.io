@@ -11,6 +11,12 @@ const nextConfig = {
         pathname: "/u/**",
         //pathname: "/u/35678887?v=4",
       },
+      {
+        protocol: "https",
+        hostname: "play-lh.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
