@@ -1,13 +1,10 @@
-import CopyButton from "@/components/common/CopyButton";
+import { GetStaticProps } from "next";
 import Head from "next/head";
+import CopyButton from "@/components/common/CopyButton";
+import getData from "@/utils/api";
+import { IHomeData } from "@/types/Home";
 
-const contacts = [
-  { title: 'E-mail', link: 'mailto:saviopf22@gmail.com', linkLabel: 'saviopf22@gmail.com' },
-  { title: 'Linkedin', link: 'https://www.linkedin.com/in/s%C3%A1vio-pal%C3%A1cio-fontes-3924aa16b/', linkLabel: 'linkedin.com/in/savio-palacio-fontes/' },
-  { title: 'Github', link: 'https://github.com/savio777', linkLabel: 'github.com/savio777' },
-]
-
-export default function Contatos() {
+export default function Contatos({ data }: { data: IHomeData }) {
   return (
     <>
       <Head>
@@ -18,7 +15,7 @@ export default function Contatos() {
         <h1 className="text-5xl md:text-7xl font-bold text-center">Contatos</h1>
 
         <ul className="table mx-auto space-y-6 md:space-y-8">
-          {contacts.map(contact => (
+          {data?.contacts?.length && data.contacts.map(contact => (
             <li key={contact.title} className="md:text-xl">
               <span className="font-bold">{contact.title}</span>
               <div className="flex gap-1 md:gap-3 items-center">
@@ -31,4 +28,14 @@ export default function Contatos() {
       </div>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps<{ data: IHomeData }> = async () => {
+  const data = await getData()
+
+  return {
+    props: {
+      data
+    }
+  }
 }

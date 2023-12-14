@@ -1,6 +1,7 @@
 export interface IHomeData {
   aboutMe: AboutMe;
   projects: Project[];
+  contacts: Contact[];
 }
 
 export interface AboutMe {
@@ -30,4 +31,10 @@ export interface Project {
   slug: string;
   name: string;
   image: ImageProject;
+}
+
+export interface Contact {
+  title: string;
+  link: string;
+  linkLabel: string;
 }
